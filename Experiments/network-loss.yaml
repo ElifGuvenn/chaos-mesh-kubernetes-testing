@@ -1,0 +1,13 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: network-loss-test
+  namespace: default
+spec:
+  action: partition
+  mode: one
+  selector:
+    labelSelectors:
+      "app": "backend"
+  direction: both
+  duration: "60s"
